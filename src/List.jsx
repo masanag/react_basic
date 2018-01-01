@@ -29,12 +29,12 @@ class List extends Component {
     }
   }
   render() {
-    const {posts} = this.props;
+    const { posts } = this.props;
     return (
       <div>
-        {posts.map((post, index) => {
+        {posts.map((post) => {
           return (
-            <div key={`${post.id}`}> {/* */}
+            <div key={post.id}>
               {this.renderPost(post)}
             </div>
           );
