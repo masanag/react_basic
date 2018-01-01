@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default class Roulette extends React.Component {
+class Roulette extends Component {
   constructor(props) {
     super(props);
     this.state = { number: 1,
@@ -45,3 +45,4 @@ export default class Roulette extends React.Component {
   }
 }
 
+export default Roulette;
