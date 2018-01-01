@@ -1,18 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Form from './Form';
+import List from './List';
 
 class App extends Component {
+  state = {
+    posts: [],
+  }
+
+  saveNewPost(newPost) {
+    const newPostWithId = {
+      ...newPost,
+      id: Date.now(),
+    }
+    this.setState({
+      posts: [...this.state.posts, newPostWithId]
+    });
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Form
+          onSubmitNewPost = {
+            (newPost) => this.saveNewPost(newPost)
+          } />
+        <hr />
+        <List
+          posts={this.state.posts} /> {}
       </div>
     );
   }
